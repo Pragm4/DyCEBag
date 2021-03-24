@@ -1,0 +1,37 @@
+[{
+  "group1":
+  {
+    "get_first_page":{
+      "properties": [{"run-once": true}],
+      "conditions": [{"is_new_page": {}}],
+      "test": [
+          {"threaded_sender": {"url_list": ["http://www.webscantest.com/"]}}
+        ],
+      "expect": [
+          {"grab_links": {}}
+        ],
+      "true-action": [{"set_fact": {"first_page": "foundlinks"}}, {"show_context": {}}],
+      "false-action": [{"set_fact": {"first_page": "nolinks"}}]
+    },
+    "get_other_pages":
+    {
+      "properties": [{"repeatable": true}],
+      "conditions": [{"first_page": "foundlinks"}],
+      "test": [
+        {"threaded_sender": {"breadth_limit": 20}}
+      ],
+      "expect": [
+        {"grab_links": {}},
+        {"text_search": {"value": "password"}}
+      ],
+      "true-action": [
+        {"stop_sending": {}}
+      ],
+      "false-action": [
+        {"set_fact": {"text_found": "notfound"}},
+        {"show_context": {"scope": "singletons"}},
+        {"next_request": {"depth_limit": 5}}
+      ]
+    }
+  }
+}]
