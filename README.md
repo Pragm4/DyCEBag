@@ -1,12 +1,12 @@
-# Recompose
+# DyCEBag
 
-Recompose is a flexible Python-based rules engine that supports multiprocessing and asynchronous tasks.
+Short for Dynamic Code Execution Bag, DyCEBag is a flexible Python-based rules engine that supports multiprocessing and asynchronous tasks.
 
-The flexibility comes from the fact that each part of a recompose rule is a function call so every part of a rule can be customized. In addition, rules are written in JSON so they are easy to write and parse.
+The flexibility comes from the fact that each part of a rule is a function call so every part of a rule can be customized. In addition, rules are written in JSON so they are easy to write and parse.
 
-One major feature of Recompose is allowing for testable conditions. These are conditions that don't have an immediate answer. The most common example of this is an HTTP request. A condition such as "Is this URL a login page?", would involve sending out a request, examining the response, then finally returning an answer of True or False. While it may be the case that this process can be broken down into several primitive condition-action rules, it occurs so often with blackbox testing that this pattern has been integrated into the engine itself.
+One major feature of DyCEBag is allowing for testable conditions. These are conditions that don't have an immediate answer. The most common example of this is an HTTP request. A condition such as "Is this URL a login page?", would involve sending out a request, examining the response, then finally returning an answer of True or False. While it may be the case that this process can be broken down into several primitive condition-action rules, it occurs so often with blackbox testing that this pattern has been integrated into the engine itself.
 
-The second major feature is that the engine can spawn multiple copies of itself and operate in separate threads. The Recompose engine can create numerous copies to send and perform tasks such as collecting URL links, thus forming the basis of a multithreaded crawler.
+The second major feature is that the engine can spawn multiple copies of itself and operate in separate threads. The DyCEBag engine can create numerous copies to send and perform tasks such as collecting URL links, thus forming the basis of a multithreaded crawler.
 
 # Other Features
 
